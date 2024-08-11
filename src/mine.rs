@@ -38,7 +38,8 @@ impl Miner {
         let mut last_balance = 0;
         loop {
             // Fetch proof
-            let config = get_config(&self.rpc_client).await;
+            let mut config = get_config(&self.rpc_client).await;
+            config.min_difficulty = args.min_difficulty;
             let proof =
                 get_updated_proof_with_authority(&self.rpc_client, signer.pubkey(), last_hash_at)
                     .await;
