@@ -70,7 +70,7 @@ pub struct MineArgs {
     )]
     pub buffer_time: u64,
 
-        #[arg(
+    #[arg(
         long,
         short,
         value_name = "min_difficulty",
